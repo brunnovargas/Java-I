@@ -5,6 +5,7 @@
  */
 package exercicio.pkg106;
 
+import java.text.Normalizer;
 import java.util.Scanner;
 
 /**
@@ -19,11 +20,11 @@ public class Palindromo {
     public static void main(String[] args) {
         // TODO code application logic here
         
+        
         Scanner teclado = new Scanner(System.in);
-        
-        
-        
+
         String s1 = teclado.nextLine();
+        String s2 = "";
         
         s1 = s1.replace( " " , "");
         s1 = s1.replace( "." , "");
@@ -32,20 +33,20 @@ public class Palindromo {
         s1 = s1.replace( "-" , "");
         s1 = s1.replace( "!" , "");
         s1 = s1.replace( "-" , "");
-        
-        
-        int t = s1.length();
-        int j=0;
-        int i=t;
-       
-               
-       while((s1.charAt(i))==(s1.charAt(j))){
-           i++;
-           j--;
-        
-       }
-       System.out.println("palindromo!!!");
+        s1 = s1.replace( "Ô" , "O");
 
+        for(int i=s1.length()-1; i>=0;i--){
+            s2+=s1.charAt(i);
+        }
+        
+        if(s1.equalsIgnoreCase(s2)){
+            System.out.println("É Palindromo!!!");
+        }else{
+            System.out.println("NÃO É palindromo!!!");
+        }
+   
     }
-
+  
 }
+
+
